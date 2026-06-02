@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dina Estética · Centro de Estética Premium en Ibiza</title>
+  <meta name="description" content="Dina Estética — Centro de estética premium en Ibiza. Especialistas en tratamientos faciales, embellecimiento de la mirada y cuidado de la piel. 4.9★ · Reserva online." />
+  <meta property="og:title" content="Dina Estética · Ibiza" />
+  <meta property="og:description" content="Tratamientos de precisión para una piel que habla por sí sola." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#inicio" class="nav-logo">
+      <span class="logo-dina">Dina</span>
+      <span class="logo-estetica">Estética</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+      <li><a href="#servicios" class="nav-link">Servicios</a></li>
+      <li><a href="#experiencia" class="nav-link">Espacio</a></li>
+      <li><a href="#reseñas" class="nav-link">Reseñas</a></li>
+    </ul>
+    <a href="#reserva" class="nav-cta btn-magnetic">Reservar cita</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#nosotros" class="mobile-link">Nosotros</a></li>
+      <li><a href="#servicios" class="mobile-link">Servicios</a></li>
+      <li><a href="#experiencia" class="mobile-link">Espacio</a></li>
+      <li><a href="#reseñas" class="mobile-link">Reseñas</a></li>
+      <li><a href="#reserva" class="mobile-link mobile-cta">Reservar cita</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="inicio">
+
+    <!-- Animated background blobs -->
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="hero-grain"></div>
+    </div>
+
+    <!-- Decorative lines -->
+    <div class="hero-deco">
+      <div class="deco-line deco-line-h"></div>
+      <div class="deco-circle"></div>
+      <span class="deco-number">I</span>
+    </div>
+
+    <!-- Main content -->
+    <div class="hero-content" id="heroContent">
+      <div class="hero-tag reveal-up">
+        <span class="tag-dot"></span>
+        Ibiza · Baleares
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-line reveal-title" style="--delay:0.1s">Tu belleza,</span>
+        <em class="hero-line hero-line-em reveal-title" style="--delay:0.25s">refinada.</em>
+      </h1>
+
+      <p class="hero-subtitle reveal-up" style="--delay:0.4s">
+        Tratamientos de precisión para una piel que habla por sí sola.<br class="br-desk" />
+        Especialistas en cuidado facial y embellecimiento de la mirada.
+      </p>
+
+      <div class="hero-ctas reveal-up" style="--delay:0.55s">
+        <a href="#reserva" class="btn btn-primary btn-magnetic">
+          <span>Reservar cita</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#servicios" class="btn btn-ghost btn-magnetic">
+          <span>Ver servicios</span>
+        </a>
+      </div>
+
+      <div class="hero-badge reveal-up" style="--delay:0.7s">
+        <div class="badge-stars">★★★★★</div>
+        <div class="badge-info">
+          <strong>4.9 / 5</strong>
+          <span>+200 clientes satisfechas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero image — integrated into layout, not boxed -->
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=85"
+          alt="Tratamiento facial premium en Dina Estética Ibiza"
+          class="hero-img"
+          loading="eager"
+        />
+        <div class="hero-img-overlay"></div>
+      </div>
+      <!-- Floating card -->
+      <div class="hero-float-card reveal-up" style="--delay:0.9s">
+        <div class="float-icon">✦</div>
+        <div class="float-text">
+          <strong>Diagnóstico personalizado</strong>
+          <span>Incluido en cada visita</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <span class="scroll-label">Descubrir</span>
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       AUTORIDAD
+  ============================================================ -->
+  <section class="authority">
+    <div class="authority-inner">
+      <div class="authority-item reveal-up" style="--delay:0s">
+        <span class="authority-num" data-count="4.9">0</span>
+        <span class="authority-label">Valoración media</span>
+      </div>
+      <div class="authority-sep"></div>
+      <div class="authority-item reveal-up" style="--delay:0.1s">
+        <span class="authority-num count-plus" data-count="7">0</span>
+        <span class="authority-label">Años de experiencia</span>
+      </div>
+      <div class="authority-sep"></div>
+      <div class="authority-item reveal-up" style="--delay:0.2s">
+        <span class="authority-num count-plus" data-count="200">0</span>
+        <span class="authority-label">Clientes satisfechas</span>
+      </div>
+      <div class="authority-sep"></div>
+      <div class="authority-item reveal-up" style="--delay:0.3s">
+        <span class="authority-num count-plus" data-count="6">0</span>
+        <span class="authority-label">Tratamientos especializados</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FILOSOFÍA
+  ============================================================ -->
+  <section class="philosophy" id="nosotros">
+    <div class="philosophy-inner">
+
+      <div class="philosophy-text">
+        <div class="section-tag reveal-up">Nuestra filosofía</div>
+        <h2 class="philosophy-title reveal-title">
+          La belleza no se <em>impone</em>,<br />se revela.
+        </h2>
+        <div class="philosophy-body">
+          <p class="reveal-up" style="--delay:0.1s">
+            Creemos en tratamientos que respetan y potencian lo que ya eres. No trabajamos con estereotipos, trabajamos con tu piel, tus rasgos, tu esencia única.
+          </p>
+          <p class="reveal-up" style="--delay:0.2s">
+            Cada sesión en Dina Estética es un ritual diseñado para ti. Desde el primer diagnóstico hasta el último detalle, nuestra obsesión es el resultado natural y duradero.
+          </p>
+        </div>
+        <a href="#servicios" class="btn-text reveal-up" style="--delay:0.3s">
+          Explorar tratamientos
+          <span class="btn-text-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="philosophy-visual reveal-right">
+        <div class="philosophy-img-container">
+          <img
+            src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=85"
+            alt="Cuidado de piel premium"
+            class="philosophy-img"
+          />
+          <div class="philosophy-img-overlay"></div>
+        </div>
+        <blockquote class="philosophy-quote reveal-up" style="--delay:0.4s">
+          "Precisión que se siente.<br/>Resultados que se ven."
+        </blockquote>
+        <div class="philosophy-tag-ibiza">Ibiza</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICIOS
+  ============================================================ -->
+  <section class="services" id="servicios">
+    <div class="services-header">
+      <div class="section-tag reveal-up">Especialidades</div>
+      <h2 class="services-title reveal-title">
+        Lo que hacemos,<br /><em>excepcionalmente bien.</em>
+      </h2>
+    </div>
+
+    <div class="services-list">
+
+      <article class="service-item reveal-service" style="--delay:0s">
+        <div class="service-num">01</div>
+        <div class="service-body">
+          <h3 class="service-name">Tratamientos Faciales</h3>
+          <p class="service-desc">Protocolos personalizados de alta eficacia para regenerar, iluminar y rejuvenecer tu piel. Diagnóstico previo incluido.</p>
+          <a href="#reserva" class="service-link">Reservar <span>→</span></a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80" alt="Tratamiento facial" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="service-item reveal-service" style="--delay:0.08s">
+        <div class="service-num">02</div>
+        <div class="service-body">
+          <h3 class="service-name">Embellecimiento de la Mirada</h3>
+          <p class="service-desc">Nuestra especialidad. Diseño y definición de cejas con técnicas de hilo, cera y perfilado artístico para una mirada expresiva y natural.</p>
+          <a href="#reserva" class="service-link">Reservar <span>→</span></a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80" alt="Embellecimiento de cejas" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="service-item reveal-service" style="--delay:0.16s">
+        <div class="service-num">03</div>
+        <div class="service-body">
+          <h3 class="service-name">Dermaplaning</h3>
+          <p class="service-desc">Exfoliación mecánica de precisión que elimina células muertas y vello fino para una piel tersa, luminosa e inmediatamente radiante.</p>
+          <a href="#reserva" class="service-link">Reservar <span>→</span></a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80" alt="Dermaplaning" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="service-item reveal-service" style="--delay:0.24s">
+        <div class="service-num">04</div>
+        <div class="service-body">
+          <h3 class="service-name">Depilación Profesional</h3>
+          <p class="service-desc">Técnicas de depilación con cera tibia y fría adaptadas a cada tipo de piel, para resultados duraderos con la máxima delicadeza.</p>
+          <a href="#reserva" class="service-link">Reservar <span>→</span></a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1576426863848-c21f53c60b19?auto=format&fit=crop&w=600&q=80" alt="Depilación profesional" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="service-item reveal-service" style="--delay:0.32s">
+        <div class="service-num">05</div>
+        <div class="service-body">
+          <h3 class="service-name">Uñas Semipermanentes</h3>
+          <p class="service-desc">Manicura y pedicura en semipermanente con acabados impecables. Durabilidad excepcional y cuidado del lecho ungueal.</p>
+          <a href="#reserva" class="service-link">Reservar <span>→</span></a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Uñas semipermanentes" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="service-item reveal-service" style="--delay:0.4s">
+        <div class="service-num">06</div>
+        <div class="service-body">
+          <h3 class="service-name">Maquillaje Profesional</h3>
+          <p class="service-desc">Maquillaje social y de novia con técnicas de alta definición. Looks naturales o elaborados que duran toda la ocasión.</p>
+          <a href="#reserva" class="service-link">Reservar <span>→</span></a>
+        </div>
+        <div class="service-visual">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Maquillaje profesional" loading="lazy" />
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPERIENCIA — full-width parallax
+  ============================================================ -->
+  <section class="experience" id="experiencia">
+    <div class="experience-media">
+      <img
+        src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1800&q=85"
+        alt="Espacio Dina Estética Ibiza"
+        class="experience-img"
+        id="parallaxImg"
+        loading="lazy"
+      />
+      <div class="experience-overlay"></div>
+    </div>
+    <div class="experience-content">
+      <div class="section-tag light reveal-up">El espacio</div>
+      <h2 class="experience-title reveal-title">
+        Un santuario creado<br /><em>para tu bienestar</em>
+      </h2>
+      <p class="experience-desc reveal-up" style="--delay:0.2s">
+        En el corazón de Ibiza, nuestro centro es un espacio íntimo donde el tiempo se detiene. Cada detalle ha sido pensado para ofrecerte la experiencia más placentera y eficaz.
+      </p>
+      <div class="experience-details reveal-up" style="--delay:0.35s">
+        <div class="exp-detail">
+          <span class="exp-detail-icon">⊕</span>
+          <span>Carrer del Dr. Fleming, 2 · Ibiza</span>
+        </div>
+        <div class="exp-detail">
+          <span class="exp-detail-icon">⊕</span>
+          <span>Lun–Vie 10:00–20:00 · Sáb 10:00–14:00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIOS
+  ============================================================ -->
+  <section class="testimonials" id="reseñas">
+    <div class="testimonials-header">
+      <div class="section-tag reveal-up">Reseñas reales</div>
+      <h2 class="testimonials-title reveal-title">
+        Lo que dicen<br /><em>nuestras clientas</em>
+      </h2>
+      <div class="stars-row reveal-up" style="--delay:0.2s">★★★★★ <span>4.9 · Google Reviews</span></div>
+    </div>
+
+    <div class="testimonials-track" id="testimonialsTrack">
+
+      <div class="testimonial-card">
+        <div class="tcard-quote">"</div>
+        <p class="tcard-text">Me salieron las cejas perfectas. Dina tiene un ojo artístico increíble y mucha delicadeza. Primera vez que salgo de una sesión sintiéndome absolutamente yo misma.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">M</div>
+          <div>
+            <strong>María L.</strong>
+            <span>Tratamiento de cejas</span>
+          </div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="tcard-quote">"</div>
+        <p class="tcard-text">El facial fue una experiencia sensorial completa. La piel me quedó luminosa durante semanas. Trato cercano, profesional y con productos de primera. Volveré sin duda.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">S</div>
+          <div>
+            <strong>Sara G.</strong>
+            <span>Tratamiento facial</span>
+          </div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="tcard-quote">"</div>
+        <p class="tcard-text">Las uñas semipermanentes me duraron más de tres semanas perfectas. Acabado impecable y en un tiempo récord. Atención personalizada desde el primer momento.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">A</div>
+          <div>
+            <strong>Ana P.</strong>
+            <span>Uñas semipermanentes</span>
+          </div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="tcard-quote">"</div>
+        <p class="tcard-text">Llevo más de dos años viniendo y jamás me han decepcionado. Cada visita es una experiencia. Dina conoce mi piel mejor que nadie, los resultados son siempre naturales y precisos.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">C</div>
+          <div>
+            <strong>Claudia R.</strong>
+            <span>Cliente habitual</span>
+          </div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="tcard-quote">"</div>
+        <p class="tcard-text">El dermaplaning fue revelador. Nunca había visto mi piel tan lisa y luminosa. Un tratamiento que pensé que no era para mí y ahora es mi ritual mensual imprescindible.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">L</div>
+          <div>
+            <strong>Laura M.</strong>
+            <span>Dermaplaning</span>
+          </div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+
+    </div>
+
+    <div class="testimonials-controls">
+      <button class="tcontrol-btn" id="tPrev" aria-label="Anterior">←</button>
+      <div class="tcontrol-dots" id="tDots"></div>
+      <button class="tcontrol-btn" id="tNext" aria-label="Siguiente">→</button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESERVA
+  ============================================================ -->
+  <section class="booking" id="reserva">
+    <div class="booking-inner">
+
+      <div class="booking-text">
+        <div class="section-tag reveal-up">Reserva tu cita</div>
+        <h2 class="booking-title reveal-title">
+          Empieza tu ritual.<br /><em>Hoy mismo.</em>
+        </h2>
+        <p class="booking-subtitle reveal-up" style="--delay:0.15s">
+          Contacta con nosotros y te ayudamos a elegir el tratamiento más adecuado para ti. Primera consulta sin compromiso.
+        </p>
+        <div class="booking-contact-list reveal-up" style="--delay:0.25s">
+          <a href="tel:+34634263663" class="bcontact-item">
+            <span class="bcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.67 3.4 2 2 0 013.65 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 9.91a16 16 0 006.18 6.18l.98-.98a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <div>
+              <strong>634 26 36 63</strong>
+              <span>Llámanos o WhatsApp</span>
+            </div>
+          </a>
+          <a href="https://instagram.com/dinaesteticaibz" target="_blank" rel="noopener" class="bcontact-item">
+            <span class="bcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
+            </span>
+            <div>
+              <strong>@dinaesteticaibz</strong>
+              <span>Síguenos en Instagram</span>
+            </div>
+          </a>
+          <div class="bcontact-item">
+            <span class="bcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <strong>Carrer del Dr. Fleming, 2</strong>
+              <span>Ibiza, Baleares</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form-wrap reveal-right">
+        <form class="booking-form" id="bookingForm" novalidate>
+          <div class="form-group">
+            <label for="fname">Nombre completo</label>
+            <input type="text" id="fname" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fphone">Teléfono</label>
+              <input type="tel" id="fphone" name="phone" placeholder="+34 6XX XXX XXX" required />
+            </div>
+            <div class="form-group">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="tu@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fservice">Tratamiento</label>
+            <select id="fservice" name="service" required>
+              <option value="" disabled selected>Selecciona un tratamiento</option>
+              <option>Tratamiento Facial</option>
+              <option>Embellecimiento de la Mirada</option>
+              <option>Dermaplaning</option>
+              <option>Depilación Profesional</option>
+              <option>Uñas Semipermanentes</option>
+              <option>Maquillaje Profesional</option>
+              <option>No sé todavía</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Mensaje (opcional)</label>
+            <textarea id="fmessage" name="message" rows="3" placeholder="Cuéntanos algo sobre lo que buscas…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-magnetic">
+            <span>Solicitar cita</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-note">Nos pondremos en contacto contigo en menos de 24 horas.</p>
+        </form>
+        <div class="booking-success" id="bookingSuccess">
+          <div class="success-icon">✦</div>
+          <h3>¡Cita solicitada!</h3>
+          <p>Te contactaremos pronto para confirmar tu reserva.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL
+  ============================================================ -->
+  <section class="cta-final">
+    <div class="cta-final-bg">
+      <div class="blob blob-cta-1"></div>
+      <div class="blob blob-cta-2"></div>
+    </div>
+    <div class="cta-final-content">
+      <div class="section-tag reveal-up">Dina Estética</div>
+      <h2 class="cta-final-title reveal-title">
+        Mereces sentirte<br /><em>extraordinaria.</em>
+      </h2>
+      <p class="cta-final-sub reveal-up" style="--delay:0.2s">Cada día es una ocasión para cuidarte.</p>
+      <a href="tel:+34634263663" class="btn btn-dark btn-magnetic reveal-up" style="--delay:0.35s">
+        <span>Llamar ahora · 634 26 36 63</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#inicio" class="footer-logo">
+          <span class="logo-dina">Dina</span>
+          <span class="logo-estetica">Estética</span>
+        </a>
+        <p class="footer-tagline">Centro de estética premium en Ibiza.<br />Belleza que parte de ti.</p>
+        <a href="https://instagram.com/dinaesteticaibz" target="_blank" rel="noopener" class="footer-ig">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
+          @dinaesteticaibz
+        </a>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Tratamientos Faciales</a></li>
+          <li><a href="#servicios">Embellecimiento de la Mirada</a></li>
+          <li><a href="#servicios">Dermaplaning</a></li>
+          <li><a href="#servicios">Depilación Profesional</a></li>
+          <li><a href="#servicios">Uñas Semipermanentes</a></li>
+          <li><a href="#servicios">Maquillaje Profesional</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+34634263663">634 26 36 63</a></li>
+          <li>Carrer del Dr. Fleming, 2</li>
+          <li>Bajo segunda, 07800 Ibiza</li>
+          <li>Lun–Vie: 10:00–20:00</li>
+          <li>Sábado: 10:00–14:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2024 Dina Estética · Ibiza</span>
+      <div class="footer-bottom-links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Aviso legal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

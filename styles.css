@@ -962,201 +962,215 @@ body.cursor-dark .cursor-dot {
 .service-item:hover .service-visual img { transform: scale(1.06); }
 
 /* ================================================================
-   HOURS
+   HOURS + CONTACTO + MAPA
 ================================================================ */
 .hours {
   padding: var(--section-pad) clamp(24px, 4vw, 64px);
-  background: var(--ink);
+  background: var(--cream);
   overflow: hidden;
 }
 .hours-inner {
   max-width: var(--container);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 6vw, 96px);
+  align-items: start;
+}
+
+/* ---- Columna izquierda ---- */
+.hours-left { display: flex; flex-direction: column; gap: 40px; }
+
+/* Lista de contacto */
+.hcontact-list { display: flex; flex-direction: column; gap: 28px; }
+
+.hcontact-item {
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+.hcontact-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
   align-items: center;
-  gap: 64px;
-}
-
-/* Cabecera centrada */
-.hours-header {
-  text-align: center;
-  max-width: 560px;
-}
-.hours-header .section-tag {
   justify-content: center;
+  margin-top: 2px;
 }
-.hours-header .section-tag::before { display: none; }
-
-.hours-title {
-  font-family: var(--font-display);
-  font-size: clamp(38px, 4.5vw, 64px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 16px;
+.hcontact-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--champagne);
 }
-.hours-title em { font-style: italic; color: var(--champagne); }
-
-.hours-subtitle {
+.hcontact-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-bottom: 5px;
+}
+.hcontact-value {
+  display: block;
   font-size: 14px;
   font-weight: 300;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 32px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  transition: color 0.3s;
 }
+a.hcontact-value:hover { color: var(--ink); }
 
-.hours-status-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+/* Tabla de horarios */
+.htable {
+  border: 1px solid rgba(26,18,10,0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
+.htable-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(26,18,10,0.06);
+  transition: background 0.3s;
+}
+.htable-row:last-child { border-bottom: none; }
+.htable-row.today { background: rgba(200,168,122,0.06); }
+
+.htable-days {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-muted);
+  transition: color 0.3s;
+}
+.htable-row.today .htable-days { color: var(--ink); font-weight: 400; }
+.htable-row--closed .htable-days { color: var(--ink-light); }
+
+.htable-time {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+.htable-row.today .htable-time { color: var(--gold); }
+.htable-closed { color: var(--ink-light) !important; }
+
+/* Badge estado */
 .hours-status {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 22px;
+  padding: 10px 18px;
   border-radius: 40px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(26,18,10,0.1);
+  width: fit-content;
   transition: all 0.5s;
 }
 .hours-status.is-open {
-  background: rgba(134, 197, 141, 0.12);
-  border-color: rgba(134, 197, 141, 0.3);
-  color: #A8D5AD;
+  background: rgba(134,197,141,0.08);
+  border-color: rgba(134,197,141,0.3);
+  color: #4A9B52;
 }
 .hours-status.is-closed {
-  background: rgba(220, 120, 100, 0.1);
-  border-color: rgba(220, 120, 100, 0.25);
-  color: rgba(220, 160, 150, 0.9);
+  background: rgba(200,100,80,0.06);
+  border-color: rgba(200,100,80,0.2);
+  color: #B06050;
 }
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
   transition: background 0.5s;
 }
 .is-open .status-dot {
-  background: #86C58D;
-  box-shadow: 0 0 0 3px rgba(134, 197, 141, 0.2);
+  background: #5DB865;
+  box-shadow: 0 0 0 3px rgba(93,184,101,0.2);
   animation: pulseDot 2s ease-in-out infinite;
 }
-.is-closed .status-dot { background: rgba(220, 120, 100, 0.7); }
+.is-closed .status-dot { background: #C07060; }
 @keyframes pulseDot {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(134,197,141,0.2); }
-  50%       { box-shadow: 0 0 0 7px rgba(134,197,141,0.05); }
+  0%,100% { box-shadow: 0 0 0 3px rgba(93,184,101,0.2); }
+  50%      { box-shadow: 0 0 0 6px rgba(93,184,101,0.05); }
 }
 .hours-localtime {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
-  color: rgba(255,255,255,0.22);
-  letter-spacing: 0.1em;
+  color: var(--ink-light);
+  letter-spacing: 0.06em;
+  padding-left: 6px;
+  border-left: 1px solid rgba(26,18,10,0.1);
 }
 
-/* Grid de 7 tarjetas */
-.hours-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 12px;
+/* ---- Columna derecha: mapa ---- */
+.hours-right { display: flex; flex-direction: column; gap: 16px; }
+
+.hmap-wrap {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--cream-dark);
+}
+.hmap-wrap iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  border: none;
+  filter: saturate(0.3) contrast(1.1);
+  transition: filter 0.4s;
+}
+.hmap-wrap:hover iframe { filter: saturate(0.6) contrast(1.05); }
+.hmap-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(26,18,10,0.08);
+  border-radius: var(--radius);
 }
 
-.day-card {
-  display: flex;
-  flex-direction: column;
+.hmap-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 28px 16px 24px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 4px;
-  transition: background 0.35s, border-color 0.35s, transform 0.35s var(--ease-out);
-  text-align: center;
-}
-.day-card:hover {
-  background: rgba(255,255,255,0.055);
-  transform: translateY(-4px);
-}
-.day-card.today {
-  background: rgba(200,168,122,0.08);
-  border-color: rgba(200,168,122,0.3);
-}
-.day-card--closed {
-  opacity: 0.35;
-}
-
-.day-name {
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
   font-size: 11px;
   font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  transition: color 0.3s;
-}
-.day-card.today .day-name { color: var(--champagne); }
-
-/* Barra vertical de progreso */
-.day-bar {
-  width: 2px;
-  height: 80px;
-  background: rgba(255,255,255,0.07);
-  border-radius: 2px;
-  overflow: hidden;
+  color: var(--ink);
+  border: 1px solid rgba(26,18,10,0.2);
+  border-radius: var(--radius);
+  transition: all 0.3s var(--ease-out);
   position: relative;
-  flex-shrink: 0;
+  overflow: hidden;
 }
-.day-fill {
+.hmap-btn::before {
+  content: '';
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(200,168,122,0.3);
-  border-radius: 2px;
-  height: 0;
-  transition: height 1.2s var(--ease-out);
+  inset: 0;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--ease-out);
 }
-.day-card.today .day-fill { background: var(--champagne); }
-.day-card--closed .day-bar { background: rgba(255,255,255,0.03); }
+.hmap-btn:hover::before { transform: scaleX(1); transform-origin: left; }
+.hmap-btn span, .hmap-btn svg { position: relative; z-index: 1; }
+.hmap-btn:hover { color: var(--cream); }
 
-/* Progress layer for current day */
-.day-progress {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: var(--champagne);
-  border-radius: 2px;
-  transition: height 1.2s var(--ease-out);
-}
-
-.day-time {
-  font-size: 11px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.22);
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-  transition: color 0.3s;
-  white-space: nowrap;
-}
-.day-card.today .day-time { color: rgba(200,168,122,0.8); }
-
-/* Responsive */
 @media (max-width: 900px) {
-  .hours-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .hours-inner { grid-template-columns: 1fr; }
+  .hmap-wrap { aspect-ratio: 16/9; }
 }
-@media (max-width: 560px) {
-  .hours-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-  }
-  .day-card { padding: 20px 10px 18px; gap: 10px; }
-  .day-bar { height: 56px; }
-  .day-name { font-size: 10px; }
-  .day-time { font-size: 10px; }
+@media (max-width: 480px) {
+  .htable-row { padding: 14px 16px; }
+  .htable-days, .htable-time { font-size: 12px; }
 }
 
 /* ================================================================

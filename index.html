@@ -510,72 +510,104 @@
   </section>
 
   <!-- ============================================================
-       HORARIOS
+       HORARIOS + CONTACTO + MAPA
   ============================================================ -->
   <section class="hours" id="horarios">
     <div class="hours-inner">
 
-      <!-- Cabecera centrada -->
-      <div class="hours-header">
-        <div class="section-tag reveal-up">Horario</div>
-        <h2 class="hours-title reveal-title">Cuándo <em>encontrarnos</em></h2>
-        <p class="hours-subtitle reveal-up" style="--delay:0.15s">
-          Estamos en el corazón de Ibiza, listos para recibirte.
-        </p>
-        <div class="hours-status-wrap reveal-up" style="--delay:0.25s">
-          <div class="hours-status" id="hoursStatus">
-            <span class="status-dot" id="statusDot"></span>
-            <span class="status-label" id="statusLabel">Comprobando…</span>
+      <!-- Columna izquierda: contacto + horario -->
+      <div class="hours-left reveal-up">
+
+        <div class="hcontact-list">
+          <div class="hcontact-item">
+            <span class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <span class="hcontact-label">Dirección</span>
+              <a href="https://maps.google.com/?q=Carrer+del+Doctor+Fleming+2+Ibiza" target="_blank" rel="noopener" class="hcontact-value">
+                Carrer del Dr. Fleming, 2, Bajo segunda<br/>07800 Ibiza, Illes Balears
+              </a>
+            </div>
           </div>
+
+          <div class="hcontact-item">
+            <span class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.67 3.4 2 2 0 013.65 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 9.91a16 16 0 006.18 6.18l.98-.98a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <div>
+              <span class="hcontact-label">Teléfono</span>
+              <a href="tel:+34634263663" class="hcontact-value">634 26 36 63</a>
+            </div>
+          </div>
+
+          <div class="hcontact-item">
+            <span class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </span>
+            <div>
+              <span class="hcontact-label">WhatsApp</span>
+              <a href="https://wa.me/34634263663" target="_blank" rel="noopener" class="hcontact-value">634 26 36 63</a>
+            </div>
+          </div>
+
+          <div class="hcontact-item">
+            <span class="hcontact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
+            </span>
+            <div>
+              <span class="hcontact-label">Instagram</span>
+              <a href="https://instagram.com/dinaesteticaibz" target="_blank" rel="noopener" class="hcontact-value">@dinaesteticaibz</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla de horarios -->
+        <div class="htable">
+          <div class="htable-row" data-day="1" data-open="10" data-close="20">
+            <span class="htable-days">Lunes — Viernes</span>
+            <span class="htable-time">10:00 — 20:00</span>
+          </div>
+          <div class="htable-row" data-day="6" data-open="10" data-close="14">
+            <span class="htable-days">Sábado</span>
+            <span class="htable-time">10:00 — 14:00</span>
+          </div>
+          <div class="htable-row htable-row--closed" data-day="0">
+            <span class="htable-days">Domingo</span>
+            <span class="htable-time htable-closed">Cerrado</span>
+          </div>
+        </div>
+
+        <!-- Badge estado -->
+        <div class="hours-status" id="hoursStatus">
+          <span class="status-dot" id="statusDot"></span>
+          <span class="status-label" id="statusLabel">Comprobando…</span>
           <span class="hours-localtime" id="hoursLocalTime"></span>
         </div>
+
       </div>
 
-      <!-- Grid de días -->
-      <div class="hours-grid">
-
-        <div class="day-card" data-day="1" data-open="10" data-close="20">
-          <span class="day-name">Lunes</span>
-          <div class="day-bar"><div class="day-fill"></div></div>
-          <span class="day-time">10:00 – 20:00</span>
+      <!-- Columna derecha: mapa -->
+      <div class="hours-right reveal-right">
+        <div class="hmap-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077.4!2d1.4318!3d38.9069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129945b9e8d3c4e7%3A0x1!2sCarrer+del+Doctor+Fleming%2C+2%2C+07800+Eivissa%2C+Illes+Balears!5e0!3m2!1ses!2ses!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Dina Estética Ibiza"
+          ></iframe>
+          <div class="hmap-overlay"></div>
         </div>
-
-        <div class="day-card" data-day="2" data-open="10" data-close="20">
-          <span class="day-name">Martes</span>
-          <div class="day-bar"><div class="day-fill"></div></div>
-          <span class="day-time">10:00 – 20:00</span>
-        </div>
-
-        <div class="day-card" data-day="3" data-open="10" data-close="20">
-          <span class="day-name">Miércoles</span>
-          <div class="day-bar"><div class="day-fill"></div></div>
-          <span class="day-time">10:00 – 20:00</span>
-        </div>
-
-        <div class="day-card" data-day="4" data-open="10" data-close="20">
-          <span class="day-name">Jueves</span>
-          <div class="day-bar"><div class="day-fill"></div></div>
-          <span class="day-time">10:00 – 20:00</span>
-        </div>
-
-        <div class="day-card" data-day="5" data-open="10" data-close="20">
-          <span class="day-name">Viernes</span>
-          <div class="day-bar"><div class="day-fill"></div></div>
-          <span class="day-time">10:00 – 20:00</span>
-        </div>
-
-        <div class="day-card" data-day="6" data-open="10" data-close="14">
-          <span class="day-name">Sábado</span>
-          <div class="day-bar"><div class="day-fill"></div></div>
-          <span class="day-time">10:00 – 14:00</span>
-        </div>
-
-        <div class="day-card day-card--closed" data-day="0">
-          <span class="day-name">Domingo</span>
-          <div class="day-bar"></div>
-          <span class="day-time">Cerrado</span>
-        </div>
-
+        <a
+          href="https://maps.google.com/?q=Carrer+del+Doctor+Fleming+2+Ibiza"
+          target="_blank"
+          rel="noopener"
+          class="hmap-btn btn-magnetic"
+        >
+          Cómo llegar
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
 
     </div>

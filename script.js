@@ -352,37 +352,16 @@ const updateHours = () => {
   labelEl.textContent = isOpen ? 'Abierto ahora' : 'Cerrado ahora';
   localTimeEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')} · Ibiza`;
 
-  // Highlight today's card & vertical progress bar
-  qsa('.day-card').forEach(card => {
-    const rDay = parseInt(card.dataset.day, 10);
-    card.classList.toggle('today', rDay === dayOfWeek);
-
-    const fill = card.querySelector('.day-fill');
-    if (!fill) return;
-
-    const cardSchedule = SCHEDULE[rDay];
-    if (!cardSchedule) return;
-
-    const totalMins = (cardSchedule.close - cardSchedule.open) * 60;
-    // Full bar height = 100% of the bar (80px via CSS)
-    // Proportion = duration / max duration (10h)
-    const durationH = cardSchedule.close - cardSchedule.open;
-    const baseHeight = (durationH / 10) * 100;
-
-    if (rDay === dayOfWeek && isOpen) {
-      const elapsed = clamp((minutesNow - cardSchedule.open * 60) / totalMins * 100, 0, 100);
-      fill.style.height = (elapsed / 100 * baseHeight) + '%';
-
-      let prog = card.querySelector('.day-progress');
-      if (!prog) {
-        prog = document.createElement('div');
-        prog.className = 'day-progress';
-        card.querySelector('.day-bar').appendChild(prog);
-      }
-      prog.style.height = (elapsed / 100 * baseHeight) + '%';
-    } else {
-      fill.style.height = baseHeight + '%';
-    }
+  // Highlight today in the hours table
+  qsa('.htable-row').forEach(row => {
+    const rDay = parseInt(row.dataset.day, 10);
+    // row data-day="1" covers Mon–Fri (days 1–5), day "6" = Sat, "0" = Sun
+    const isToday = rDay === 0
+      ? dayOfWeek === 0
+      : rDay === 6
+        ? dayOfWeek === 6
+        : (dayOfWeek >= 1 && dayOfWeek <= 5);
+    row.classList.toggle('today', isToday);
   });
 };
 

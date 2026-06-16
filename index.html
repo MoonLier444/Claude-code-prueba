@@ -293,68 +293,6 @@
   </section>
 
   <!-- ============================================================
-       HORARIOS
-  ============================================================ -->
-  <section class="hours" id="horarios">
-    <div class="hours-inner">
-
-      <div class="hours-text">
-        <div class="section-tag reveal-up">Horario</div>
-        <h2 class="hours-title reveal-title">Cuándo <em>encontrarnos</em></h2>
-        <p class="hours-subtitle reveal-up" style="--delay:0.15s">
-          Estamos en el corazón de Ibiza, listos para recibirte. Consulta nuestro horario y reserva cuando mejor te venga.
-        </p>
-        <div class="hours-status-wrap reveal-up" style="--delay:0.25s">
-          <div class="hours-status" id="hoursStatus">
-            <span class="status-dot" id="statusDot"></span>
-            <span class="status-label" id="statusLabel">Comprobando…</span>
-          </div>
-          <span class="hours-localtime" id="hoursLocalTime"></span>
-        </div>
-      </div>
-
-      <div class="hours-schedule reveal-right">
-        <div class="schedule-row" data-day="1" data-open="10:00" data-close="20:00">
-          <span class="srow-day">Lunes</span>
-          <div class="srow-bar"><div class="srow-fill"></div></div>
-          <span class="srow-time">10:00 – 20:00</span>
-        </div>
-        <div class="schedule-row" data-day="2" data-open="10:00" data-close="20:00">
-          <span class="srow-day">Martes</span>
-          <div class="srow-bar"><div class="srow-fill"></div></div>
-          <span class="srow-time">10:00 – 20:00</span>
-        </div>
-        <div class="schedule-row" data-day="3" data-open="10:00" data-close="20:00">
-          <span class="srow-day">Miércoles</span>
-          <div class="srow-bar"><div class="srow-fill"></div></div>
-          <span class="srow-time">10:00 – 20:00</span>
-        </div>
-        <div class="schedule-row" data-day="4" data-open="10:00" data-close="20:00">
-          <span class="srow-day">Jueves</span>
-          <div class="srow-bar"><div class="srow-fill"></div></div>
-          <span class="srow-time">10:00 – 20:00</span>
-        </div>
-        <div class="schedule-row" data-day="5" data-open="10:00" data-close="20:00">
-          <span class="srow-day">Viernes</span>
-          <div class="srow-bar"><div class="srow-fill"></div></div>
-          <span class="srow-time">10:00 – 20:00</span>
-        </div>
-        <div class="schedule-row" data-day="6" data-open="10:00" data-close="14:00">
-          <span class="srow-day">Sábado</span>
-          <div class="srow-bar"><div class="srow-fill"></div></div>
-          <span class="srow-time">10:00 – 14:00</span>
-        </div>
-        <div class="schedule-row schedule-row--closed" data-day="0">
-          <span class="srow-day">Domingo</span>
-          <div class="srow-bar"></div>
-          <span class="srow-time">Cerrado</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
        EXPERIENCIA — full-width parallax
   ============================================================ -->
   <section class="experience" id="experiencia">
@@ -566,6 +504,78 @@
           <h3>¡Cita solicitada!</h3>
           <p>Te contactaremos pronto para confirmar tu reserva.</p>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HORARIOS
+  ============================================================ -->
+  <section class="hours" id="horarios">
+    <div class="hours-inner">
+
+      <!-- Cabecera centrada -->
+      <div class="hours-header">
+        <div class="section-tag reveal-up">Horario</div>
+        <h2 class="hours-title reveal-title">Cuándo <em>encontrarnos</em></h2>
+        <p class="hours-subtitle reveal-up" style="--delay:0.15s">
+          Estamos en el corazón de Ibiza, listos para recibirte.
+        </p>
+        <div class="hours-status-wrap reveal-up" style="--delay:0.25s">
+          <div class="hours-status" id="hoursStatus">
+            <span class="status-dot" id="statusDot"></span>
+            <span class="status-label" id="statusLabel">Comprobando…</span>
+          </div>
+          <span class="hours-localtime" id="hoursLocalTime"></span>
+        </div>
+      </div>
+
+      <!-- Grid de días -->
+      <div class="hours-grid">
+
+        <div class="day-card" data-day="1" data-open="10" data-close="20">
+          <span class="day-name">Lunes</span>
+          <div class="day-bar"><div class="day-fill"></div></div>
+          <span class="day-time">10:00 – 20:00</span>
+        </div>
+
+        <div class="day-card" data-day="2" data-open="10" data-close="20">
+          <span class="day-name">Martes</span>
+          <div class="day-bar"><div class="day-fill"></div></div>
+          <span class="day-time">10:00 – 20:00</span>
+        </div>
+
+        <div class="day-card" data-day="3" data-open="10" data-close="20">
+          <span class="day-name">Miércoles</span>
+          <div class="day-bar"><div class="day-fill"></div></div>
+          <span class="day-time">10:00 – 20:00</span>
+        </div>
+
+        <div class="day-card" data-day="4" data-open="10" data-close="20">
+          <span class="day-name">Jueves</span>
+          <div class="day-bar"><div class="day-fill"></div></div>
+          <span class="day-time">10:00 – 20:00</span>
+        </div>
+
+        <div class="day-card" data-day="5" data-open="10" data-close="20">
+          <span class="day-name">Viernes</span>
+          <div class="day-bar"><div class="day-fill"></div></div>
+          <span class="day-time">10:00 – 20:00</span>
+        </div>
+
+        <div class="day-card" data-day="6" data-open="10" data-close="14">
+          <span class="day-name">Sábado</span>
+          <div class="day-bar"><div class="day-fill"></div></div>
+          <span class="day-time">10:00 – 14:00</span>
+        </div>
+
+        <div class="day-card day-card--closed" data-day="0">
+          <span class="day-name">Domingo</span>
+          <div class="day-bar"></div>
+          <span class="day-time">Cerrado</span>
+        </div>
+
       </div>
 
     </div>

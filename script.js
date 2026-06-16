@@ -352,41 +352,36 @@ const updateHours = () => {
   labelEl.textContent = isOpen ? 'Abierto ahora' : 'Cerrado ahora';
   localTimeEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')} · Ibiza`;
 
-  // Highlight today's row & progress bar
-  qsa('.schedule-row').forEach(row => {
-    const rDay = parseInt(row.dataset.day, 10);
-    row.classList.toggle('today', rDay === dayOfWeek);
+  // Highlight today's card & vertical progress bar
+  qsa('.day-card').forEach(card => {
+    const rDay = parseInt(card.dataset.day, 10);
+    card.classList.toggle('today', rDay === dayOfWeek);
 
-    const fill = row.querySelector('.srow-fill');
+    const fill = card.querySelector('.day-fill');
     if (!fill) return;
 
-    const rowSchedule = SCHEDULE[rDay];
-    if (!rowSchedule) return;
+    const cardSchedule = SCHEDULE[rDay];
+    if (!cardSchedule) return;
 
-    const totalMins = (rowSchedule.close - rowSchedule.open) * 60;
-    // width = proportion of working hours elapsed (0–100%)
-    const pct = rDay === dayOfWeek
-      ? clamp((minutesNow - rowSchedule.open * 60) / totalMins * 100, 0, 100)
-      : 0;
-
-    // Base bar width (visual proportion of the day length)
-    const dayWidth = ((rowSchedule.close - rowSchedule.open) / 10) * 100;
+    const totalMins = (cardSchedule.close - cardSchedule.open) * 60;
+    // Full bar height = 100% of the bar (80px via CSS)
+    // Proportion = duration / max duration (10h)
+    const durationH = cardSchedule.close - cardSchedule.open;
+    const baseHeight = (durationH / 10) * 100;
 
     if (rDay === dayOfWeek && isOpen) {
-      // Show progress within today
-      fill.style.width = (pct / 100 * dayWidth) + '%';
-      fill.style.opacity = '1';
-      // Add a moving progress indicator
-      let prog = row.querySelector('.srow-progress');
+      const elapsed = clamp((minutesNow - cardSchedule.open * 60) / totalMins * 100, 0, 100);
+      fill.style.height = (elapsed / 100 * baseHeight) + '%';
+
+      let prog = card.querySelector('.day-progress');
       if (!prog) {
         prog = document.createElement('div');
-        prog.className = 'srow-progress';
-        row.querySelector('.srow-bar').appendChild(prog);
+        prog.className = 'day-progress';
+        card.querySelector('.day-bar').appendChild(prog);
       }
-      prog.style.width = (pct / 100 * dayWidth) + '%';
+      prog.style.height = (elapsed / 100 * baseHeight) + '%';
     } else {
-      fill.style.width = dayWidth + '%';
-      fill.style.opacity = rDay === dayOfWeek ? '0.15' : '0.25';
+      fill.style.height = baseHeight + '%';
     }
   });
 };

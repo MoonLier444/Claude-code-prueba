@@ -962,6 +962,178 @@ body.cursor-dark .cursor-dot {
 .service-item:hover .service-visual img { transform: scale(1.06); }
 
 /* ================================================================
+   HOURS
+================================================================ */
+.hours {
+  padding: var(--section-pad) clamp(24px, 4vw, 64px);
+  background: var(--ink);
+  overflow: hidden;
+}
+.hours-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(60px, 8vw, 120px);
+  align-items: center;
+}
+
+.hours-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.hours-title em { font-style: italic; color: var(--champagne); }
+
+.hours-subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 32px;
+  max-width: 340px;
+}
+
+/* Status badge */
+.hours-status-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hours-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.5s;
+}
+.hours-status.is-open {
+  background: rgba(134, 197, 141, 0.12);
+  border-color: rgba(134, 197, 141, 0.3);
+  color: #A8D5AD;
+}
+.hours-status.is-closed {
+  background: rgba(220, 120, 100, 0.1);
+  border-color: rgba(220, 120, 100, 0.25);
+  color: rgba(220, 160, 150, 0.9);
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.5s;
+}
+.is-open .status-dot {
+  background: #86C58D;
+  box-shadow: 0 0 0 3px rgba(134, 197, 141, 0.2);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+.is-closed .status-dot {
+  background: rgba(220, 120, 100, 0.7);
+}
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(134,197,141,0.2); }
+  50%       { box-shadow: 0 0 0 6px rgba(134,197,141,0.05); }
+}
+
+.hours-localtime {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.08em;
+}
+
+/* Schedule rows */
+.hours-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.schedule-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 110px;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.3s;
+}
+.schedule-row:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+.schedule-row.today { background: rgba(200,168,122,0.05); border-radius: 4px; }
+
+.srow-day {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+}
+.schedule-row.today .srow-day { color: var(--champagne); font-weight: 400; }
+.schedule-row--closed .srow-day { color: rgba(255,255,255,0.2); }
+
+.srow-bar {
+  height: 2px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.srow-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--champagne);
+  opacity: 0.35;
+  border-radius: 2px;
+  width: 0;
+  transition: width 1s var(--ease-out), opacity 0.3s;
+}
+.schedule-row.today .srow-fill { opacity: 1; }
+/* widths set by JS; fallback for no-JS */
+.schedule-row[data-close="20:00"] .srow-fill { width: 100%; }
+.schedule-row[data-close="14:00"] .srow-fill { width: 40%; }
+
+.srow-time {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.3);
+  text-align: right;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.schedule-row.today .srow-time { color: var(--champagne); }
+.schedule-row--closed .srow-time { color: rgba(255,255,255,0.15); }
+
+/* Progress bar for current day */
+.srow-progress {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--champagne);
+  border-radius: 2px;
+  transition: width 1s var(--ease-out);
+}
+
+@media (max-width: 900px) {
+  .hours-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hours-subtitle { max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .schedule-row { grid-template-columns: 86px 1fr 90px; gap: 12px; }
+  .srow-day { font-size: 12px; }
+  .srow-time { font-size: 11px; }
+}
+
+/* ================================================================
    EXPERIENCE (Parallax)
 ================================================================ */
 .experience {

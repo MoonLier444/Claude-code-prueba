@@ -309,3 +309,87 @@ qsa('.service-item').forEach(item => {
     document.body.classList.remove('cursor-hover');
   });
 });
+
+/* ================================================================
+   12. HOURS — real-time open/closed (Europe/Madrid = Ibiza)
+================================================================ */
+const SCHEDULE = {
+  1: { open: 10, close: 20 },
+  2: { open: 10, close: 20 },
+  3: { open: 10, close: 20 },
+  4: { open: 10, close: 20 },
+  5: { open: 10, close: 20 },
+  6: { open: 10, close: 14 },
+  0: null
+};
+
+const updateHours = () => {
+  const statusEl   = qs('#hoursStatus');
+  const dotEl      = qs('#statusDot');
+  const labelEl    = qs('#statusLabel');
+  const localTimeEl = qs('#hoursLocalTime');
+  if (!statusEl) return;
+
+  const now = new Date();
+  const ibizaStr = now.toLocaleString('en-GB', { timeZone: 'Europe/Madrid' });
+  // "DD/MM/YYYY, HH:MM:SS"
+  const [, timeStr] = ibizaStr.split(', ');
+  const [hStr, mStr] = timeStr.split(':');
+  const h = parseInt(hStr, 10);
+  const m = parseInt(mStr, 10);
+  const dayOfWeek = new Date(
+    now.toLocaleString('en-US', { timeZone: 'Europe/Madrid' })
+  ).getDay();
+
+  const schedule = SCHEDULE[dayOfWeek];
+  const minutesNow = h * 60 + m;
+  const isOpen = schedule
+    ? minutesNow >= schedule.open * 60 && minutesNow < schedule.close * 60
+    : false;
+
+  // Badge
+  statusEl.className = 'hours-status ' + (isOpen ? 'is-open' : 'is-closed');
+  labelEl.textContent = isOpen ? 'Abierto ahora' : 'Cerrado ahora';
+  localTimeEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')} · Ibiza`;
+
+  // Highlight today's row & progress bar
+  qsa('.schedule-row').forEach(row => {
+    const rDay = parseInt(row.dataset.day, 10);
+    row.classList.toggle('today', rDay === dayOfWeek);
+
+    const fill = row.querySelector('.srow-fill');
+    if (!fill) return;
+
+    const rowSchedule = SCHEDULE[rDay];
+    if (!rowSchedule) return;
+
+    const totalMins = (rowSchedule.close - rowSchedule.open) * 60;
+    // width = proportion of working hours elapsed (0–100%)
+    const pct = rDay === dayOfWeek
+      ? clamp((minutesNow - rowSchedule.open * 60) / totalMins * 100, 0, 100)
+      : 0;
+
+    // Base bar width (visual proportion of the day length)
+    const dayWidth = ((rowSchedule.close - rowSchedule.open) / 10) * 100;
+
+    if (rDay === dayOfWeek && isOpen) {
+      // Show progress within today
+      fill.style.width = (pct / 100 * dayWidth) + '%';
+      fill.style.opacity = '1';
+      // Add a moving progress indicator
+      let prog = row.querySelector('.srow-progress');
+      if (!prog) {
+        prog = document.createElement('div');
+        prog.className = 'srow-progress';
+        row.querySelector('.srow-bar').appendChild(prog);
+      }
+      prog.style.width = (pct / 100 * dayWidth) + '%';
+    } else {
+      fill.style.width = dayWidth + '%';
+      fill.style.opacity = rDay === dayOfWeek ? '0.15' : '0.25';
+    }
+  });
+};
+
+updateHours();
+setInterval(updateHours, 30000);

@@ -979,7 +979,8 @@ body.cursor-dark .cursor-dot {
 }
 
 /* ---- Columna izquierda ---- */
-.hours-left { display: flex; flex-direction: column; gap: 40px; }
+.hours-left { display: flex; flex-direction: column; gap: 40px; opacity: 1 !important; transform: none !important; }
+.hours-right { display: flex; flex-direction: column; gap: 16px; opacity: 1 !important; transform: none !important; }
 
 /* Lista de contacto */
 .hcontact-list { display: flex; flex-direction: column; gap: 28px; }
